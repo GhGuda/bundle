@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheap Bundle</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="shortcut icon" href="/all.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="head">
+        <nav class="navLinks">
+            <a href="#" class="logo">
+                CheapBundle
+            </a>
+
+            <div class="toggler">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+
+            <ul>
+                <li><a href="#">
+                <i class="fa fa-home"></i>
+                    Home</a></li>
+                <li><a href="https://paystack.com/pay/qonv9g9-gp">
+                <i class="fa fa-fas fa-money-bill"></i>
+                    Become Agent</a></li>
+                <li><a href="">
+                    <img src="{% static 'img/mtn.jpeg' %}" class="img" alt="">
+                    MTN</a></li>
+                <li><a href="">
+                    <img src="{% static 'img/voda.jpeg' %}" class="img" alt="">
+                    Telecel</a></li>
+                <li><a href="">
+                    <img src="{% static 'img/tigo.jpeg' %}" class="img" alt="">
+                    AirtelTigo</a></li>
+            </ul>
+
+            <img src="{% static 'img/ghana.jpg' %}" class="gh" alt="">
+        </nav>
+    </div>
+
+
+    <section class="top">
+        <p class="des">This is a mega bonus data bundle platform which gives crazy bundle offers at an affordable prices.
+            This platform offers bundle from <small class="multiple-text"></small>.
+        </p>
+
+        <p class="pp">
+            Resell data to get more profit.
+            <a href="https://paystack.com/pay/qonv9g9-gp" class="btn">Become Agent</a>
+        </p>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <h2 class="">Calculate bundle in cedis</h2>
+            <div class="amount">
+                <label>Enter E-mail </label>
+                <input type="email" name="email" id="email" value="">
+            </div>
+        
+            <div class="amount">
+                <label>Enter receipient number</label>
+                <input type="number" name="number" id="" value="">
+            </div>
+
+            <div class="amount">
+                <label>Enter amount above GH₵ 100</label>
+                <input type="number" name="amount" id="amountInput" value="">
+            </div>
+        
+            <div class="amount">
+                <label>Bundle amount to receive</label>
+                <input type="text" name="gig" id="bundleInput" readonly>
+            </div>
+
+            <button class="bundle"  style="display: none;">Proceed</button>
+        </form>
+        
+    </section>
+
+
+
+    <section id="offers">
+        <h2 class="">Bundles Delivered Today</h2>
+
+        <div class="container" id="cardContainer">
+            <div class="cards">
+                <b>Bundle</b>
+                <b>Price</b>
+                <b>Number</b>
+                <b>Status</b>
+            </div>
+            <div class="card">
+                <b>300 Gb</b>
+                <b>GH₵ 150</b>
+                <b>059*****17</b>
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="card">
+                <b>300 Gb</b>
+                <b>GH₵ 100</b>
+                <b>050*****70</b>
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="card">
+                <b>300 Gb</b>
+                <b>GH₵ 100</b>
+                <b>025*****17</b>
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="card">
+                <b>300 Gb</b>
+                <b>GH₵ 200</b>
+                <b>057*****20</b>
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+        </div>
+        
+        <script>
+            setInterval(function() {
+                let cardContainer = document.getElementById('cardContainer');
+                let cards = cardContainer.getElementsByClassName('card');
+                let cardArray = Array.from(cards);
+                shuffleArray(cardArray);
+                for (let i = 0; i < cardArray.length; i++) {
+                    cardContainer.appendChild(cardArray[i]);
+                }
+            }, 1000);
+        
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+        </script>
+        
+    </section>
+
+
+
+
+     <!-- Typed js  -->
+     <script src="https://unpkg.com/typed.js@2.0.132/dist/typed.umd.js"></script>
+
+     <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
